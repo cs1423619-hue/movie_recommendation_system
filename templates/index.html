@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MovieMind | Discover Your Next Favorite Film</title>
+    <meta
+      name="description"
+      content="MovieMind is a premium movie discovery platform built for intelligent recommendations."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwUEQp1mM7QXw4d4f4gA3l6n9uK8uM2s7M3LJ8t6KQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="static/css/style.css" />
+  </head>
+  <body data-page="home">
+    <div class="page-bg"></div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+      <div class="search-modal-content">
+        <div class="search-header">
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search movies, genres, actors..."
+            autofocus
+          />
+          <button class="close-search" id="closeSearch">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+    </div>
+
+    <header class="site-header glass">
+      <nav class="nav container">
+        <div class="nav-brand">
+          <div class="brand-mark">
+            <i class="fa-solid fa-clapperboard"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">MovieMind</span>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a class="nav-link active" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+          <a class="nav-link" href="movie.html"><i class="fa-solid fa-compass"></i> Discover</a>
+          <a class="nav-link" href="recommendations.html"><i class="fa-solid fa-star"></i> For You</a>
+          <a class="nav-link" href="favorites.html"><i class="fa-solid fa-heart"></i> Favorites</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="icon-button" id="searchBtn" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button class="icon-button" id="notifBtn" aria-label="Notifications">
+            <i class="fa-solid fa-bell"></i>
+          </button>
+          <button class="button button-primary" id="signInBtn">Sign In</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="status-dot"></span>
+              Personalized movie discovery
+            </div>
+
+            <h1>
+              Find your next
+              <span class="gradient-text">cinematic obsession</span>
+            </h1>
+
+            <p>
+              Discover handpicked films tailored to your taste using smart
+              recommendations, mood-based suggestions, and trending picks curated
+              for every kind of movie lover.
+            </p>
+
+            <div class="hero-actions">
+              <a href="recommendations.html" class="button button-primary">
+                <i class="fa-solid fa-play"></i>
+                Start Watching
+              </a>
+              <a href="movie.html" class="button button-secondary">
+                <i class="fa-solid fa-film"></i>
+                Explore Movies
+              </a>
+            </div>
+
+            <div class="hero-metrics">
+              <div class="metric">
+                <strong>120K+</strong>
+                <span>movie matches</span>
+              </div>
+              <div class="metric">
+                <strong>4.9/5</strong>
+                <span>user rating</span>
+              </div>
+              <div class="metric">
+                <strong>24/7</strong>
+                <span>smart discovery</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="poster-stack">
+              <article class="featured-poster poster-main">
+                <div class="poster-image poster-1"></div>
+                <div class="poster-overlay">
+                  <span class="movie-tag">Sci-Fi</span>
+                  <h3>Interstellar</h3>
+                </div>
+              </article>
+
+              <article class="featured-poster poster-side">
+                <div class="poster-image poster-2"></div>
+              </article>
+
+              <div class="floating-card">
+                <div class="rating-pill">
+                  <i class="fa-solid fa-star"></i>
+                  8.7
+                </div>
+                <div class="small-stat">
+                  <span>Trending</span>
+                  <strong>Top 10</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="label">Curated Picks</p>
+              <h2>Trending films this week</h2>
+            </div>
+            <a href="recommendations.html" class="text-link">
+              View all
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="filter-row">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="action">Action</button>
+            <button class="chip" data-filter="drama">Drama</button>
+            <button class="chip" data-filter="sci-fi">Sci-Fi</button>
+            <button class="chip" data-filter="thriller">Thriller</button>
+            <button class="chip" data-filter="comedy">Comedy</button>
+          </div>
+
+          <div class="movie-grid" id="featured-movies"></div>
+        </div>
+      </section>
+
+      <section class="content-section alt-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="label">Mood Match</p>
+              <h2>Based on what you love</h2>
+            </div>
+            <a href="recommendations.html" class="text-link">
+              Personalize
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="recommendation-layout">
+            <div class="big-feature">
+              <div class="feature-art art-dark"></div>
+              <div class="feature-content">
+                <p class="eyebrow">Recommended for you</p>
+                <h3>The Silent Horizon</h3>
+                <div class="meta-row">
+                  <span>Drama</span>
+                  <span>•</span>
+                  <span>2023</span>
+                  <span>•</span>
+                  <span>2h 08m</span>
+                </div>
+                <p>
+                  An emotionally layered story of memory, resilience, and the
+                  quiet courage it takes to begin again.
+                </p>
+                <button class="button button-primary" id="trailerBtn">
+                  <i class="fa-solid fa-play"></i>
+                  Watch Trailer
+                </button>
+              </div>
+            </div>
+
+            <div class="side-panels">
+              <div class="mini-panel">
+                <p class="label">Smart score</p>
+                <h3>92%</h3>
+                <span>matching your taste profile</span>
+              </div>
+
+              <div class="mini-panel">
+                <p class="label">Top genre</p>
+                <h3>Mind-bending sci-fi</h3>
+                <span>12 titles in your radar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="label">Community</p>
+              <h2>What critics are watching</h2>
+            </div>
+          </div>
+
+          <div class="critic-grid">
+            <article class="critic-card">
+              <div class="critic-header">
+                <div class="critic-avatar a1">A</div>
+                <div>
+                  <h4>Ariana K.</h4>
+                  <span>Film critic</span>
+                </div>
+              </div>
+              <p>
+                "An outstanding blend of suspense and emotional storytelling.
+                Every frame felt carefully composed."
+              </p>
+            </article>
+
+            <article class="critic-card">
+              <div class="critic-header">
+                <div class="critic-avatar a2">N</div>
+                <div>
+                  <h4>Noah R.</h4>
+                  <span>Editor</span>
+                </div>
+              </div>
+              <p>
+                "A visually rich, deeply intelligent film that rewards patience
+                with unforgettable performances."
+              </p>
+            </article>
+
+            <article class="critic-card">
+              <div class="critic-header">
+                <div class="critic-avatar a3">S</div>
+                <div>
+                  <h4>Shreya M.</h4>
+                  <span>Movie blogger</span>
+                </div>
+              </div>
+              <p>
+                "It combines artistry and momentum so beautifully that it feels
+                both intimate and epic."
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="static/js/script.js"></script>
+  </body>
+</html>
